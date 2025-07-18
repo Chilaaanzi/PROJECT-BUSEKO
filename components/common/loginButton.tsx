@@ -10,12 +10,12 @@ export function LoginButton({
 }) {
   const baseColor = onDarkBackground ? "bg-yellow-400" : "bg-zinc-950";
   const hoverColor = onDarkBackground
-    ? "hover:bg-white hover:text-zinc-950"
-    : "hover:bg-yellow-400 hover:text-white";
+    ? "hover:bg-white hover:text-zinc-950 hover:scale-105"
+    : "hover:bg-yellow-400 hover:text-white hover:scale-105";
 
   return (
     <Button className={`px-7 ${baseColor} ${hoverColor}`}>
-      <Link href="/contacts">Get Quote</Link>
+      <Link href="/#Quote">Get Quote</Link>
     </Button>
   );
 }

@@ -4,7 +4,6 @@ import {
   ThumbsUp,
   Clock,
   Handshake,
-  Leaf,
   ShieldCheck,
   ShoppingCart,
 } from "lucide-react";
@@ -12,40 +11,40 @@ import { motion } from "framer-motion";
 
 const reasons = [
   {
-    title: "Trusted by Locals",
+    title: "Trusted Steel Supplier",
     description:
-      "We’ve served hundreds of happy customers across Lusaka and beyond with quality and consistency.",
-    icon: <ThumbsUp className="w-6 h-6 text-pink-600" />,
+      "Serving thousands across Lusaka and beyond with quality steel and hardware.",
+    icon: <ThumbsUp className="w-6 h-6 text-zinc-600" />,
   },
   {
-    title: "Fresh & Timely Delivery",
+    title: "Wide Product Range",
     description:
-      "We prioritize freshness and deliver your treats or supplies right on time, every time.",
-    icon: <Clock className="w-6 h-6 text-pink-600" />,
+      "From rebars and I‑beams to roofing sheets and U‑channels — we stock it all.",
+    icon: <ShoppingCart className="w-6 h-6 text-zinc-600" />,
   },
   {
-    title: "Easy to Work With",
+    title: "Prompt Delivery",
     description:
-      "From custom orders to wholesale supplies, we’re flexible and always ready to help.",
-    icon: <Handshake className="w-6 h-6 text-pink-600" />,
+      "Fresh stock, on-site anytime — keeping your construction on schedule.",
+    icon: <Clock className="w-6 h-6 text-zinc-600" />,
   },
   {
-    title: "Natural Ingredients",
+    title: "Custom Orders Welcome",
     description:
-      "We use locally sourced, natural ingredients where possible for healthier, better-tasting treats.",
-    icon: <Leaf className="w-6 h-6 text-pink-600" />,
+      "Need specific sizes or shapes? Our flexible service handles custom requests.",
+    icon: <Handshake className="w-6 h-6 text-zinc-600" />,
   },
   {
     title: "Secure Payments",
     description:
-      "We support local mobile money like Airtel Money and MTN for fast, secure payments.",
-    icon: <ShieldCheck className="w-6 h-6 text-pink-600" />,
+      "Pay confidently via mobile money or bank — safe, efficient, Zambia-ready.",
+    icon: <ShieldCheck className="w-6 h-6 text-zinc-600" />,
   },
   {
-    title: "One-Stop Baking Shop",
+    title: "Construction Partner",
     description:
-      "From birthday cakes to baking pans, find everything you need in one place.",
-    icon: <ShoppingCart className="w-6 h-6 text-pink-600" />,
+      "More than a supplier — we’re your go-to construction ally on every site.",
+    icon: <ThumbsUp className="w-6 h-6 text-zinc-600" />,
   },
 ];
 
@@ -53,7 +52,7 @@ export default function WhyChooseUs() {
   return (
     <section className="p-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center text-pink-800 mb-10">
+        <h2 className="text-3xl font-bold text-center text-zinc-800 mb-10">
           Why Choose Us
         </h2>
 
@@ -62,7 +61,7 @@ export default function WhyChooseUs() {
             <motion.div
               key={index}
               className={`p-6 rounded-xl shadow-sm transition ${
-                index % 2 === 0 ? "bg-white" : "bg-pink-50"
+                index % 2 === 0 ? "bg-white" : "bg-zinc-50"
               }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -71,11 +70,11 @@ export default function WhyChooseUs() {
             >
               <div className="flex items-center gap-3 mb-3">
                 {reason.icon}
-                <h3 className="text-lg font-semibold text-pink-800">
+                <h3 className="text-lg font-semibold text-zinc-800">
                   {reason.title}
                 </h3>
               </div>
-              <p className="text-sm text-pink-700">{reason.description}</p>
+              <p className="text-sm text-zinc-700">{reason.description}</p>
             </motion.div>
           ))}
         </div>

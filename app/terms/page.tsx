@@ -29,12 +29,12 @@ export default function TermsPage() {
     >
       {/* Header */}
       <motion.header
-        className="text-center w-full bg-white bg-[url('/bg.svg')] bg-cover bg-center"
+        className="text-center w-full bg-zinc-950 bg-[url('/bg.svg')] bg-cover bg-center"
         variants={itemVariants}
       >
-        <section className="flex my-10 flex-col text-white justify-center items-center h-[30dvh] lg:h-[25dvh]">
-          <h1 className="text-3xl font-black text-pink-950">Terms of Use</h1>
-          <p className="text-lg lg:text-xl text-center text-pink-400">
+        <section className="flex my-20 flex-col text-white justify-center items-center h-[30dvh] lg:h-[25dvh]">
+          <h1 className="text-3xl font-black text-white">Terms of Use</h1>
+          <p className="text-lg lg:text-xl text-center text-yellow-400">
             Please read these terms carefully before using our website
           </p>
         </section>
@@ -53,7 +53,7 @@ export default function TermsPage() {
           <div className="space-y-8">
             {/* Acceptance of Terms */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 1. Acceptance of Terms
               </h2>
               <p className="mb-3">
@@ -78,7 +78,7 @@ export default function TermsPage() {
 
             {/* User Account and Security */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 2. User Account & Security
               </h2>
               <p className="mb-3">
@@ -107,7 +107,7 @@ export default function TermsPage() {
 
             {/* Intellectual Property */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 3. Intellectual Property Rights
               </h2>
               <p>
@@ -139,14 +139,14 @@ export default function TermsPage() {
 
             {/* Data & Privacy */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 4. Data & Privacy
               </h2>
               <p>
                 We process user data in accordance with our Privacy Policy. You
                 retain ownership of any data you provide.
               </p>
-              <div className="bg-pink-50 p-4 rounded-lg mt-4">
+              <div className="bg-yellow-50 p-4 rounded-lg mt-4">
                 <p className="font-bold">Our Commitments:</p>
                 <ul className="list-disc pl-5 mt-2">
                   <li>Protect your data with appropriate security measures</li>
@@ -164,7 +164,7 @@ export default function TermsPage() {
 
             {/* Restrictions and Liability */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 5. Restrictions & Limitations of Liability
               </h2>
               <div className="bg-red-50 border-l-4 border-red-400 p-4 mb-4">
@@ -197,7 +197,7 @@ export default function TermsPage() {
 
             {/* Termination */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 6. Termination
               </h2>
               <div className="grid md:grid-cols-2 gap-4">
@@ -225,7 +225,7 @@ export default function TermsPage() {
 
             {/* Governing Law */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 7. Governing Law & Dispute Resolution
               </h2>
               <div className="flex flex-wrap gap-4">
@@ -251,7 +251,7 @@ export default function TermsPage() {
 
             {/* Amendments */}
             <motion.section className="mb-8" variants={itemVariants}>
-              <h2 className="text-xl font-semibold text-pink-600 mb-3">
+              <h2 className="text-xl font-semibold text-yellow-600 mb-3">
                 8. Amendments to Terms
               </h2>
               <p>

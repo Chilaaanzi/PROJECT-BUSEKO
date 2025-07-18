@@ -3,7 +3,7 @@ import Footer from "@/components/common/footer";
 import NavLinks from "@/components/common/nav-bar";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollMeter } from "@/components/common/scroll";
-import Services from "@/components/common/service";
+
 import "./globals.css";
 import { Poppins } from "next/font/google";
 
@@ -15,40 +15,38 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Gelos Treat — Pastry Supplies & Baking Utensils in Lusaka",
+  title: "Buseko Steel — Hardware, Steel, and Building Materials in Zambia",
   description:
-    "Gelos Treat is your one-stop shop in Lusaka for quality baking tools, pastry supplies, and cake accessories. Serving both home bakers and professionals across Zambia.",
+    "Buseko Steel is your reliable source in Zambia for hardware, steel products, and building materials. Trusted by builders, contractors, and home renovators nationwide.",
   keywords: [
-    "baking tools Zambia",
-    "pastry shop Lusaka",
-    "cake decorating supplies Zambia",
-    "baking utensils Kitwe",
-    "Lusaka baking store",
-    "cupcake tools Zambia",
-    "Gelos Treat",
-    "baking supplies Zambia",
-    "cake tools Lusaka",
-    "kitchen accessories Zambia",
-    "pastry decorating tools",
-    "baking shop Lusaka",
-    "Zambian baking gear",
+    "hardware Zambia",
+    "steel suppliers Lusaka",
+    "building materials Zambia",
+    "construction tools Zambia",
+    "angle bars Zambia",
+    "steel pipes Lusaka",
+    "roofing supplies Zambia",
+    "Buseko Steel",
+    "power tools Zambia",
+    "home renovation tools",
+    "Zambia construction shop",
   ],
-  authors: [{ name: "Gelos Treat Team", url: "https://gelostreats.com" }],
+  authors: [{ name: "Buseko Steel Team", url: "https://busekosteel.com" }],
   generator: "Next.js",
-  applicationName: "Gelos Treat",
-  metadataBase: new URL("https://gelostreats.com"),
+  applicationName: "Buseko Steel",
+  metadataBase: new URL("https://busekosteel.com"),
   openGraph: {
-    title: "Gelos Treat — Pastry Supplies & Baking Utensils in Lusaka",
+    title: "Buseko Steel — Hardware, Steel, and Building Materials in Zambia",
     description:
-      "Gelos Treat is your trusted source for baking utensils, cake tools, and decorating supplies in Zambia. Perfect for home bakers, bakeries, and baking startups.",
-    url: "https://gelostreats.com",
-    siteName: "Gelos Treat",
+      "From steel bars to power tools, Buseko Steel offers everything you need for construction, plumbing, and electrical projects across Zambia.",
+    url: "https://busekosteel.com",
+    siteName: "Buseko Steel",
     images: [
       {
-        url: "https://gelostreats.com/og-image.png",
+        url: "https://busekosteel.com/og-image.jpg", // Replace with actual OG image if available
         width: 1200,
         height: 630,
-        alt: "Gelos Treat shop and tools preview",
+        alt: "Buseko Steel store and product preview",
       },
     ],
     locale: "en_US",
@@ -56,11 +54,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    site: "@gelostreats",
-    title: "Gelos Treat — Pastry Supplies & Baking Utensils in Lusaka",
+    site: "@busekosteel", // Replace if they have an actual Twitter
+    title: "Buseko Steel — Hardware, Steel, and Building Materials in Zambia",
     description:
-      "Find quality baking and cake decorating tools at Gelos Treat, Lusaka’s go-to pastry shop for all baking lovers and professionals.",
-    images: ["https://gelostreats.com/og-image.png"],
+      "Shop construction supplies, steel bars, power tools, and more at Buseko Steel – Zambia's trusted building materials supplier.",
+    images: ["https://busekosteel.com/og-image.jpg"], // Replace if image exists
   },
   icons: {
     icon: "/favicon.ico",
@@ -77,6 +75,7 @@ const linksData = [
   { label: "About", href: "/#About" },
   { label: "Products", href: "/products" },
   { label: "Blogs", href: "/blogs" },
+  { label: "Contact", href: "/contacts" },
 ];
 
 export default function RootLayout({
@@ -94,8 +93,11 @@ export default function RootLayout({
         {children}
         <Toaster />
       </body>
-      <Services />
-      <Footer />
+
+      <div className="w-full justify-center bg-zinc-950">
+        {" "}
+        <Footer />
+      </div>
     </html>
   );
 }

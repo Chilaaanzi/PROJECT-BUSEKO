@@ -47,7 +47,7 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
               href={`/blogs/${slug}`}
               className="flex flex-col flex-1 group"
             >
-              <div className="relative h-2/3 bg-pink-100">
+              <div className="relative h-2/3 bg-zinc-100">
                 <Image
                   src={images?.[0] || "/default-image.jpg"}
                   alt={title}
@@ -57,7 +57,7 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
               </div>
 
               <div className="flex-1 p-4 flex flex-col justify-start">
-                <h2 className="text-lg font-semibold text-pink-950 group-hover:text-pink-600 transition">
+                <h2 className="text-lg font-semibold text-zinc-950 group-hover:text-yellow-400 transition">
                   {title}
                 </h2>
                 {date && (

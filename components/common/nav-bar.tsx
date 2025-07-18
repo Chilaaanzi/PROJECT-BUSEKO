@@ -64,7 +64,9 @@ const NavLinks: React.FC<NavLinksProps> = ({ links, logoSrc }) => {
             </div>
           </section>
 
-          <section className={`text-sm`}></section>
+          <section className={`text-sm`}>
+            Lusaka, Plot 165 Lumumba Rd, Matero next to Buseko Market
+          </section>
         </div>
       )}
 
