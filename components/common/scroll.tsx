@@ -21,7 +21,7 @@ export function ScrollMeter() {
   return (
     <div className="fixed top-0 left-0 w-full h-2 bg-transparent z-50">
       <motion.div
-        className="h-full bg-pink-300"
+        className="h-full bg-yellow-300"
         initial={{ width: 0 }}
         animate={{ width: `${scrollPercent}%` }}
         transition={{ type: "spring", stiffness: 60, damping: 20 }}

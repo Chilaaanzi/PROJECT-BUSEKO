@@ -75,8 +75,8 @@ export const metadata: Metadata = {
 const linksData = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#About" },
-  { label: "Catalog", href: "/products" },
-  { label: "Recipes", href: "/blogs" },
+  { label: "Products", href: "/products" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 export default function RootLayout({
@@ -89,7 +89,7 @@ export default function RootLayout({
       <NavLinks links={linksData} logoSrc="/logo.svg" />
       <ScrollMeter />
       <body
-        className={`${poppins.variable} antialiased bg-muted overflow-x-hidden`}
+        className={`${poppins.variable} antialiased bg-white overflow-x-hidden`}
       >
         {children}
         <Toaster />

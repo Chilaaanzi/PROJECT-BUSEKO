@@ -8,14 +8,14 @@ export function LoginButton({
 }: {
   onDarkBackground?: boolean;
 }) {
-  const baseColor = onDarkBackground ? "bg-pink-300" : "bg-pink-600";
+  const baseColor = onDarkBackground ? "bg-yellow-400" : "bg-zinc-950";
   const hoverColor = onDarkBackground
-    ? "hover:bg-white hover:text-pink-950"
-    : "hover:bg-pink-700 hover:text-white";
+    ? "hover:bg-white hover:text-zinc-950"
+    : "hover:bg-yellow-400 hover:text-white";
 
   return (
     <Button className={`px-7 ${baseColor} ${hoverColor}`}>
-      <Link href="/contacts">Order Now</Link>
+      <Link href="/contacts">Get Quote</Link>
     </Button>
   );
 }
