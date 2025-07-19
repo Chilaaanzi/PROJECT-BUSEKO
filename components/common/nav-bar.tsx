@@ -105,7 +105,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ links, logoSrc }) => {
                     variant="link"
                     className={`${
                       isScrolled ? "text-zinc-950" : "text-zinc-950"
-                    } hover:text-zinc-400 active:text-gray-500 text-xs`}
+                    } hover:text-yellow-400 active:text-gray-500 text-xs`}
                   >
                     {link.label}
                   </Button>
@@ -156,7 +156,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ links, logoSrc }) => {
                 <Link
                   key={index}
                   href={link.href}
-                  className="text-lg w-full text-start py-2 hover:bg-zinc-100 active:bg-zinc-200 rounded"
+                  className="text-lg w-full text-start p-2 hover:bg-zinc-100 active:bg-zinc-200 rounded"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

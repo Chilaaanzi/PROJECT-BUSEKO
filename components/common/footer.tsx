@@ -22,7 +22,7 @@ const Footer = () => {
   const quickLinks = [
     { name: "Home", url: "/" },
     { name: "Products", url: "/products" },
-    { name: "About Us", url: "/#About" },
+    { name: "About Us", url: "/about" },
     { name: "Contact", url: "/contacts" },
     { name: "FAQs", url: "/faq" },
     { name: "Blog", url: "/blogs" },

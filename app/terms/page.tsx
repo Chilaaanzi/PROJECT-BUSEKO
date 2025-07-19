@@ -28,17 +28,26 @@ export default function TermsPage() {
       variants={containerVariants}
     >
       {/* Header */}
-      <motion.header
-        className="text-center w-full bg-zinc-950 bg-[url('/bg.svg')] bg-cover bg-center"
-        variants={itemVariants}
-      >
-        <section className="flex my-20 flex-col text-white justify-center items-center h-[30dvh] lg:h-[25dvh]">
-          <h1 className="text-3xl font-black text-white">Terms of Use</h1>
-          <p className="text-lg lg:text-xl text-center text-yellow-400">
+      <section className="w-full bg-gradient-to-br from-background to-muted py-20">
+        <div className="container mx-auto px-4 mt-20 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-foreground mb-6"
+          >
+            Terms of <span className="text-yellow-400">Use</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+          >
             Please read these terms carefully before using our website
-          </p>
-        </section>
-      </motion.header>
+          </motion.p>
+        </div>
+      </section>
 
       {/* Terms of Use Content */}
       <motion.div

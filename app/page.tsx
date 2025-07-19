@@ -1,6 +1,6 @@
 import HeroSection from "@/components/home/hero";
-import { ProductCategories } from "@/components/home/category";
-import { About } from "@/components/home/about";
+import ProductCategories from "@/components/home/category";
+import About from "@/components/home/about";
 import WhyChooseUs from "@/components/home/why";
 import LatestPosts from "@/components/home/blogs";
 import QuoteForm from "@/components/common/request-Quote";

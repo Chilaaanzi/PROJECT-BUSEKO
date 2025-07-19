@@ -72,21 +72,30 @@ export default function FaqPage() {
       variants={containerVariants}
     >
       {/* Hero Header */}
-      <motion.header
-        className="text-center w-full bg-white bg-[url('/bg.svg')] bg-cover bg-center"
-        variants={itemVariants}
-      >
-        <section className="flex my-10 flex-col text-white justify-center items-center h-[30dvh] lg:h-[25dvh]">
-          <h1 className="text-3xl font-black text-pink-950">FAQs</h1>
-          <p className="text-lg lg:text-xl text-center text-pink-400">
-            frequently asked questions
-          </p>
-        </section>
-      </motion.header>
+      <section className="bg-gradient-to-br from-background to-muted py-20">
+        <div className="container mx-auto px-4 mt-20 text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold text-foreground mb-6"
+          >
+            Common <span className="text-yellow-400">FAQs</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+          >
+            Frequently Asked Questions
+          </motion.p>
+        </div>
+      </section>
 
       {/* Main Content */}
       <motion.section
-        className="py-10 px-4 md:px-12 max-w-7xl mx-auto max-h-max mb-20 -mt-10 bg-pink-100 rounded-sm"
+        className="py-10 px-4 md:px-12 max-w-7xl mx-auto max-h-max mb-20 -mt-10 bg-gray-50 rounded-sm"
         variants={itemVariants}
       >
         <Accordion items={faqItems} />

@@ -1,85 +1,97 @@
 "use client";
-
-import Link from "next/link";
-import Image from "next/image";
+import { Building2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Facebook, Instagram } from "lucide-react";
-import { Pacifico } from "next/font/google";
-import { Lobster } from "next/font/google";
+import Link from "next/link";
 
-const lobster = Lobster({ subsets: ["latin"], weight: "400" });
-const pacifico = Pacifico({ subsets: ["latin"], weight: "400" });
+const stats = [
+  { number: "10+", label: "Years in Business" },
+  { number: "100+", label: "Projects Supported" },
+  { number: "50+", label: "Product Varieties" },
+  { number: "100%", label: "Customer Care" },
+];
 
-const details = {
-  title: "About Us",
-  sub_title: "Where Baking Begins – And Tastes Amazing",
-  image: "/About.jpg",
-  description:
-    "GelosTreat is Zambia’s go-to for all things baking. From custom cakes and pastries to top-quality baking tools, we help you create sweet moments—whether at home or in business. Based in Lusaka, we proudly serve dessert lovers and bakers nationwide.",
-  facebook: "https://www.facebook.com/GelosTreats",
-  instagram: "https://www.instagram.com/gelos_treats",
-};
-
-export function About() {
-  return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-2 bg-pink-100 min-h-[50dvh]">
-      {/* Content Section */}
+const AboutSection = () => (
+  <section id="about" className="py-20 bg-yellow-300/30">
+    <div className="container mx-auto px-4">
+      {/* Header */}
       <motion.div
-        className="flex flex-col justify-center items-center gap-4 p-10 order-2 lg:order-1"
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        transition={{ duration: 0.6 }}
       >
-        <motion.h1
-          className={`text-pink-950 text-4xl font-extrabold ${lobster.className}`}
-        >
-          {details.title}
-        </motion.h1>
-
-        <motion.h2
-          className={`text-2xl text-pink-800 font-semibold ${pacifico.className}`}
-        >
-          {details.sub_title}
-        </motion.h2>
-
-        <motion.p className="text-pink-700 text-lg text-center">
-          {details.description}
-        </motion.p>
-
-        <motion.div
-          className="flex items-center gap-4 mt-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
-        >
-          <p className="font-semibold text-pink-900">Socials:</p>
-
-          <Link
-            href={details.facebook}
-            target="_blank"
-            className="flex items-center gap-2 text-blue-600 hover:underline"
-          >
-            <Facebook className="w-5 h-5" />
-          </Link>
-
-          <Link
-            href={details.instagram}
-            target="_blank"
-            className="flex items-center gap-2 text-pink-600 hover:underline"
-          >
-            <Instagram className="w-5 h-5" />
-          </Link>
-        </motion.div>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl font-bold text-white mb-5">
+            About <span className="text-zinc-950">Buseko Steel</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Based on Lumumba Road in Lusaka, Buseko Steel supplies quality
+            steel, building materials, and safety gear to contractors and
+            developers across Zambia
+          </p>
+        </div>
       </motion.div>
-      {/* Image Section */}
-      <span className="relative bg-pink-200 w-full min-h-[40dvh] lg:h-auto order-1 lg:order-2">
-        <Image
-          src={details.image}
-          alt={details.title}
-          fill
-          className="object-cover"
-        />
-      </span>
+
+      {/* Main content */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div className="w-full lg:max-w-2xl">
+            <h3 className="text-2xl font-bold text-foreground mb-6">
+              Building the Future, One Project at a Time
+            </h3>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              Founded to address Zambia’s growing infrastructure needs, Buseko
+              Steel has become Lusaka’s premier destination for high-strength
+              steel and construction essentials. They understand local
+              challenges—from sourcing certified materials to transport
+              logistics—and have built a reputation on consistency and care.
+            </p>
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              Beyond supplying materials, Buseko Steel collaborates with
+              contractors and engineers to ensure every project—from homes to
+              commercial complexes—has the integrity it deserves.
+            </p>
+            <Link href={"/about"}>
+              {" "}
+              <Button
+                size="lg"
+                className=" hover:bg-yellow-400 hover:text-zinc-950"
+              >
+                <Building2 className="h-5 w-5 mr-2" />
+                Learn More About Us
+              </Button>
+            </Link>
+          </div>
+        </motion.div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 gap-6">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, duration: 0.5 }}
+              className="text-center"
+            >
+              <div className="bg-background h-40 flex flex-col justify-center items-center rounded-xl p-6 shadow-lg border border-border">
+                <div className="text-4xl font-bold text-yellow-400 mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-muted-foreground font-medium text-lg">
+                  {stat.label}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
-  );
-}
+  </section>
+);
+
+export default AboutSection;

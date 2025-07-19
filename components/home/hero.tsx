@@ -1,7 +1,10 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Truck, Shield, Calculator, BookImage } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const trustIndicators = [
@@ -26,33 +29,63 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-center lg:text-start">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-center lg:text-start"
+          >
             {"Zambia's Premier"}
-            <span className="block text-yellow-400">Steel Supplier</span>
-          </h1>
+            <motion.span
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="block text-yellow-400"
+            >
+              Steel & Hardware Supplier
+            </motion.span>
+          </motion.h1>
 
-          <p className="text-sm md:text-xl text-white/90 mb-8 leading-relaxed text-center lg:text-start">
-            Quality steel and building materials for construction professionals.
-            From rebars to roofing, we deliver excellence to your doorstep.
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6 }}
+            className="text-base md:text-xl text-white/90 mb-8 leading-relaxed text-center lg:text-start"
+          >
+            Supplying top-quality steel and construction-grade hardware tools to
+            professionals and builders across Zambia.
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 ">
-            <Button className="text-zinc-950 bg-yellow-400  hover:bg-yellow-200 hover:scale-105">
-              <Link href={"/#Quote"} className="flex gap-2 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 mb-12 lg:max-w-2xl"
+          >
+            <Link href={"/#Quote"} className="w-full">
+              <Button className="w-full text-zinc-950 bg-yellow-400 hover:bg-zinc-950 hover:scale-105 hover:text-white">
+                {" "}
                 <Calculator className="h-5 w-5" />
                 Get Instant Quote
-              </Link>
-            </Button>
-            <Button className="text-zinc-950 bg-white  hover:bg-yellow-200 hover:scale-105">
-              <Link href={"/products"} className="flex gap-2 items-center">
+              </Button>
+            </Link>
+
+            <Link href={"/products"} className="w-full">
+              <Button className="w-full text-zinc-950 bg-white hover:bg-zinc-950 hover:scale-105 hover:text-white">
+                {" "}
                 <BookImage className="h-5 w-5" />
                 View Products
-              </Link>
-            </Button>
-          </div>
+              </Button>
+            </Link>
+          </motion.div>
 
           {/* Trust indicators */}
-          <div className="grid grid-cols-3 gap-6 ">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.6 }}
+            className="grid grid-cols-3 gap-6"
+          >
             {trustIndicators.map((item, index) => (
               <div
                 key={index}
@@ -64,7 +97,7 @@ const Hero = () => {
                 <span className="font-semibold text-sm">{item.text}</span>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
 

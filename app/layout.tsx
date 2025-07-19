@@ -72,7 +72,7 @@ export const metadata: Metadata = {
 
 const linksData = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#About" },
+  { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
   { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contacts" },

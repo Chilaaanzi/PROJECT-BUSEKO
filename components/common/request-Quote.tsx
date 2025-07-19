@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,7 @@ import {
 import { Calculator, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 
+// Env variables
 const MyForm_Api = process.env.NEXT_PUBLIC_EMAIL_ENDPOINT || "";
 const WebsiteID = process.env.NEXT_PUBLIC_WEBSITE_ALLOWED || "";
 const WebsiteAPI = process.env.NEXT_PUBLIC_WEBSITE_ALLOWED_API || "";
@@ -116,7 +118,11 @@ const QuoteForm = () => {
       <div className="container w-full lg:max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Content */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Get a <span className="text-primary">Quick Quote</span>
             </h2>
@@ -139,7 +145,14 @@ const QuoteForm = () => {
                   desc: "Meets global standards",
                 },
               ].map((item, i) => (
-                <div key={i} className="flex items-start space-x-4">
+                <motion.div
+                  key={i}
+                  className="flex items-start space-x-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15, duration: 0.5 }}
+                >
                   <div className="bg-primary/10 p-3 rounded-full mt-1">
                     <CheckCircle className="h-6 w-6 text-primary" />
                   </div>
@@ -147,76 +160,76 @@ const QuoteForm = () => {
                     <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
                     <p className="text-muted-foreground">{item.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Form */}
-          <Card className="shadow-brand w-full max-w-xl mx-auto">
-            <CardHeader className="text-center">
-              <CardTitle className="flex items-center justify-center space-x-3 text-2xl">
-                <Calculator className="h-7 w-7 text-primary" />
-                <span>Request Quote</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input
-                    id="firstName"
-                    name="firstName"
-                    required
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    placeholder="First Name"
-                  />
-                  <Input
-                    id="lastName"
-                    name="lastName"
-                    required
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    placeholder="Last Name"
-                  />
-                </div>
+          {/* Right Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+          >
+            <Card className="shadow-brand w-full max-w-xl mx-auto">
+              <CardHeader className="text-center">
+                <CardTitle className="flex items-center justify-center space-x-3 text-2xl">
+                  <Calculator className="h-7 w-7 text-primary" />
+                  <span>Request Quote</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Input
+                      name="firstName"
+                      required
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      placeholder="First Name"
+                    />
+                    <Input
+                      name="lastName"
+                      required
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      placeholder="Last Name"
+                    />
+                  </div>
 
-                <Input
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleInputChange}
-                  placeholder="Company (optional)"
-                />
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
+                    name="company"
+                    value={formData.company}
                     onChange={handleInputChange}
-                    placeholder="Email"
+                    placeholder="Company (optional)"
                   />
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Phone Number"
-                  />
-                </div>
 
-                <div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Input
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="Email"
+                    />
+                    <Input
+                      name="phone"
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="Phone Number"
+                    />
+                  </div>
+
                   <Select
                     required
                     value={formData.subject}
                     onValueChange={handleSelectChange}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue placeholder="Select product category" />
                     </SelectTrigger>
                     <SelectContent>
@@ -227,47 +240,45 @@ const QuoteForm = () => {
                       ))}
                     </SelectContent>
                   </Select>
-                </div>
 
-                <Input
-                  id="quantity"
-                  name="quantity"
-                  value={formData.quantity}
-                  onChange={handleInputChange}
-                  placeholder="Estimated Quantity (e.g. 500 sheets)"
-                />
+                  <Input
+                    name="quantity"
+                    value={formData.quantity}
+                    onChange={handleInputChange}
+                    placeholder="Estimated Quantity (e.g. 500 sheets)"
+                  />
 
-                <Textarea
-                  id="message"
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  placeholder="Details (sizes, grade, delivery...)"
-                />
+                  <Textarea
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={4}
+                    placeholder="Details (sizes, grade, delivery...)"
+                  />
 
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-yellow-400 text-zinc-950 hover:bg-yellow-300 hover:text-zinc-950"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="h-5 w-5 mr-2" />
-                      Submit Request
-                    </>
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-yellow-400 text-zinc-950 hover:bg-yellow-300 hover:text-zinc-950"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-current mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        Submit Request
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>

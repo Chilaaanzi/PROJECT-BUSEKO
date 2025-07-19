@@ -98,7 +98,7 @@ const MyForm = () => {
           className="w-full flex flex-col gap-4 p-4"
         >
           <div className="w-full grid grid-cols-1 gap-6">
-            <span className="w-full">
+            <span className="w-full space-y-2">
               <Label htmlFor="name">Full Name</Label>
               <Input
                 type="text"
@@ -111,7 +111,7 @@ const MyForm = () => {
               />
             </span>
 
-            <span className="w-full">
+            <span className="w-full space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
                 id="email"
@@ -124,14 +124,14 @@ const MyForm = () => {
               />
             </span>
 
-            <span className="w-full">
+            <span className="w-full space-y-2">
               <Label htmlFor="subject">Select Your Subject</Label>
               <Select
                 value={formData.subject}
                 onValueChange={handleSelectChange}
                 required
               >
-                <SelectTrigger id="subject">
+                <SelectTrigger id="subject" className="w-full">
                   <SelectValue placeholder="Subject" />
                 </SelectTrigger>
                 <SelectContent>
@@ -159,7 +159,7 @@ const MyForm = () => {
               </Select>
             </span>
 
-            <span className="w-full">
+            <span className="w-full space-y-2">
               <Label htmlFor="message">Message</Label>
               <Textarea
                 id="message"
@@ -177,7 +177,7 @@ const MyForm = () => {
 
           <Button
             type="submit"
-            className="mt-4 w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg"
+            className="mt-4 w-full bg-yellow-400 hover:bg-zinc-950 text-white py-2 rounded-lg"
           >
             Send Message
           </Button>

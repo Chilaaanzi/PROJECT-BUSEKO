@@ -56,20 +56,35 @@ export default function ContactPage() {
     >
       {/* Hero Header */}
       <motion.header
-        className="text-center w-full bg-white bg-[url('/bg.svg')] bg-cover bg-center"
+        className="text-center w-full bg-muted bg-[url('/bg.svg')] bg-cover bg-center bg-gradient-to-br from-background to-muted"
         variants={itemVariants}
       >
-        <section className="flex my-10 flex-col text-white justify-center items-center h-[30dvh] lg:h-[25dvh]">
-          <h1 className="text-3xl  font-black text-pink-950">Contacts</h1>
-          <p className="text-lg lg:text-xl text-center text-pink-400">
-            Get in touch
-          </p>
+        <section className="flex my-20 flex-col text-white justify-center items-center h-[30dvh] lg:h-[25dvh]">
+          <div className="container mx-auto px-4 mt-10 text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-3xl md:text-4xl font-bold text-foreground mb-6"
+            >
+              Contact <span className="text-yellow-400">Us</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            >
+              Get in touch with us today to learn more about our products and
+              services.
+            </motion.p>
+          </div>
         </section>
       </motion.header>
 
       {/* Main Content */}
       <motion.section
-        className="py-10 px-4 md:px-12 max-w-7xl mx-auto max-h-max -mt-20 bg-pink-100 rounded-sm mb-10"
+        className="py-10 px-4 md:px-12 max-w-7xl mx-auto max-h-max -mt-20 bg-gray-50 rounded-sm mb-10"
         variants={itemVariants}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
@@ -84,7 +99,7 @@ export default function ContactPage() {
           {/* Contact Info Section */}
           <motion.div className="space-y-10 pt-4" variants={itemVariants}>
             <div className="space-y-6">
-              <h2 className="text-2xl font-semibold text-pink-950 text-center lg:text-start">
+              <h2 className="text-2xl font-semibold text-yellow-950 text-center lg:text-start">
                 Let’s Talk Baking & Tools
               </h2>
               <p className="text-gray-600 leading-relaxed text-base">
@@ -109,15 +124,15 @@ export default function ContactPage() {
                       className="flex items-center gap-4"
                       variants={itemVariants}
                     >
-                      <div className="bg-pink-100 p-3 rounded-lg">
-                        <Icon className="text-pink-600 w-5 h-5 shrink-0" />
+                      <div className="bg-yellow-100 p-3 rounded-lg">
+                        <Icon className="text-yellow-600 w-5 h-5 shrink-0" />
                       </div>
                       <div>
                         <p className="text-sm text-gray-500 font-medium">
                           {item.label}
                         </p>
                         <Link
-                          className="text-gray-700 text-base hover:text-pink-600"
+                          className="text-gray-700 text-base hover:text-yellow-600"
                           href={item.link}
                         >
                           {item.value}

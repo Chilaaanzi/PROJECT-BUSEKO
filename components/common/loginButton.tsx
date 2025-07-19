@@ -14,8 +14,8 @@ export function LoginButton({
     : "hover:bg-yellow-400 hover:text-white hover:scale-105";
 
   return (
-    <Button className={`px-7 ${baseColor} ${hoverColor}`}>
-      <Link href="/#Quote">Get Quote</Link>
-    </Button>
+    <Link href="/#Quote">
+      <Button className={`px-7 ${baseColor} ${hoverColor}`}>Get Quote</Button>
+    </Link>
   );
 }

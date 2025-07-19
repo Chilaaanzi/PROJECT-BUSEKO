@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 
 type Blog = {
   slug: string;
@@ -40,7 +41,9 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
       <Input
         type="text"
         placeholder="Search blog posts..."
-        className="w-full mb-4 px-4 py-2 border border-pink-300 rounded"
+        className={`w-full mb-4 px-4 py-2 border rounded
+          ${search ? "border-yellow-400" : "border-zinc-900"}
+          focus:border-yellow-400`}
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);
@@ -50,10 +53,10 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
 
       {/* Sort Toggle Buttons */}
       <div className="mb-6 flex justify-center gap-4">
-        <button
-          className={`px-4 py-1.5 rounded-full text-sm transition ${
+        <Button
+          className={`px-4 py-1.5 text-sm transition ${
             sortNewest
-              ? "bg-pink-600 text-white shadow-lg"
+              ? "bg-yellow-600 text-white shadow-lg"
               : "bg-gray-100 text-gray-800 hover:bg-gray-200"
           }`}
           onClick={() => {
@@ -63,12 +66,12 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
           aria-pressed={sortNewest}
         >
           Newest First
-        </button>
+        </Button>
 
-        <button
-          className={`px-4 py-1.5 rounded-full text-sm transition ${
+        <Button
+          className={`px-4 py-1.5 text-sm transition ${
             !sortNewest
-              ? "bg-pink-600 text-white shadow-lg"
+              ? "bg-yellow-600 text-white shadow-lg"
               : "bg-gray-100 text-gray-800 hover:bg-gray-200"
           }`}
           onClick={() => {
@@ -78,11 +81,11 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
           aria-pressed={!sortNewest}
         >
           Oldest First
-        </button>
+        </Button>
       </div>
 
       <motion.ul
-        className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-min"
+        className={`grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-min min-h-[70dvh] relative`}
         initial="hidden"
         animate="visible"
         variants={{
@@ -91,50 +94,59 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
         }}
       >
         <AnimatePresence mode="popLayout">
-          {paginatedBlogs.map(({ slug, title, date, images }) => (
+          {paginatedBlogs.length === 0 ? (
             <motion.li
-              key={slug}
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-              layout
-              className="flex flex-col bg-white rounded-lg shadow overflow-hidden w-full min-h-[400px] transition hover:shadow-lg"
+              className="absolute inset-0 flex items-center justify-center"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              <Link
-                href={`/blogs/${slug}`}
-                className="flex flex-col flex-1 group"
-              >
-                <div className="relative h-2/3 bg-pink-100">
-                  <Image
-                    src={images?.[0] || "/default-image.jpg"}
-                    alt={title}
-                    fill
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <div className="flex-1 p-4 flex flex-col justify-start">
-                  <h2 className="text-lg font-semibold text-pink-950 group-hover:text-pink-600 transition">
-                    {title}
-                  </h2>
-                  {date && (
-                    <p className="text-sm text-gray-500 mt-1">
-                      {new Date(date).toLocaleDateString()}
-                    </p>
-                  )}
-                </div>
-              </Link>
+              <p className="text-center text-gray-500 text-lg">
+                No blog posts found.
+              </p>
             </motion.li>
-          ))}
+          ) : (
+            paginatedBlogs.map(({ slug, title, date, images }) => (
+              <motion.li
+                key={slug}
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                layout
+                className="flex flex-col bg-white rounded-lg shadow overflow-hidden w-full min-h-[400px] transition hover:shadow-lg"
+              >
+                <Link
+                  href={`/blogs/${slug}`}
+                  className="flex flex-col flex-1 group"
+                >
+                  <div className="relative h-2/3 bg-yellow-100">
+                    <Image
+                      src={images?.[0] || "/default-image.jpg"}
+                      alt={title}
+                      fill
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+
+                  <div className="flex-1 p-4 flex flex-col justify-start">
+                    <h2 className="text-lg font-semibold text-Zinc-950 group-hover:text-yellow-600 transition">
+                      {title}
+                    </h2>
+                    {date && (
+                      <p className="text-sm text-gray-500 mt-1">
+                        {new Date(date).toLocaleDateString()}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              </motion.li>
+            ))
+          )}
         </AnimatePresence>
       </motion.ul>
-
-      {filteredAndSorted.length === 0 && (
-        <p className="text-center text-gray-500 mt-10">No blog posts found.</p>
-      )}
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
@@ -153,7 +165,7 @@ export default function BlogList({ blogs }: { blogs: Blog[] }) {
               onClick={() => setPage(i + 1)}
               className={`px-4 py-2 rounded ${
                 page === i + 1
-                  ? "bg-pink-600 text-white"
+                  ? "bg-yellow-600 text-white"
                   : "bg-gray-100 hover:bg-gray-200"
               }`}
             >

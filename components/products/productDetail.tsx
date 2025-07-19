@@ -34,7 +34,7 @@ export default function ProductDetails({
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left side: images + description */}
         <div className="lg:w-1/2 flex flex-col">
-          <div className="relative w-full h-[300px] sm:h-[400px] rounded-xl overflow-hidden border">
+          <div className="relative w-full h-[300px] sm:h-[400px] rounded-lg overflow-hidden border border-zinc-700 shadow-md">
             <AnimatePresence mode="wait">
               <motion.div
                 key={images[currentIndex] || "placeholder"}
@@ -59,14 +59,14 @@ export default function ProductDetails({
                 <button
                   onClick={handlePrev}
                   aria-label="Previous image"
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-zinc-800 hover:bg-zinc-900 text-yellow-400 rounded-full p-3 shadow-lg transition"
                 >
                   ◀
                 </button>
                 <button
                   onClick={handleNext}
                   aria-label="Next image"
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-zinc-800 hover:bg-zinc-900 text-yellow-400 rounded-full p-3 shadow-lg transition"
                 >
                   ▶
                 </button>
@@ -76,7 +76,7 @@ export default function ProductDetails({
 
           {/* Description below images */}
           {description && (
-            <p className="mt-4 text-pink-300 text-base sm:text-lg leading-relaxed">
+            <p className="mt-4 text-zinc-300 text-base sm:text-lg leading-relaxed">
               {description}
             </p>
           )}
@@ -84,12 +84,14 @@ export default function ProductDetails({
 
         {/* Right side: other product info + markdown content */}
         <div className="lg:w-1/2 flex flex-col justify-start space-y-6">
-          <h1 className="text-4xl font-bold text-pink-950">{product.title}</h1>
+          <h1 className="text-4xl font-extrabold text-yellow-400">
+            {product.title}
+          </h1>
 
           <div className="flex flex-wrap gap-4 items-center mt-2">
             {price !== undefined && (
-              <div className="px-4 py-2 bg-pink-100 text-pink-700 font-semibold rounded-lg shadow-sm">
-                Price: <span className="text-pink-900">K {price}</span>
+              <div className="px-4 py-2 bg-zinc-700 text-yellow-400 font-semibold rounded-lg shadow-sm">
+                Price: <span className="text-yellow-300">K {price}</span>
               </div>
             )}
 
@@ -97,8 +99,8 @@ export default function ProductDetails({
               <div
                 className={`px-4 py-2 rounded-lg shadow-sm font-semibold ${
                   stock > 0
-                    ? "bg-green-100 text-green-700"
-                    : "bg-red-100 text-red-700"
+                    ? "bg-green-800 text-green-300"
+                    : "bg-red-800 text-red-400"
                 }`}
               >
                 {stock > 0 ? `In Stock: ${stock}` : "Out of Stock"}
@@ -106,7 +108,7 @@ export default function ProductDetails({
             )}
 
             {category && (
-              <div className="px-4 py-2 bg-gray-100 text-Pink-700 font-medium rounded-lg shadow-sm capitalize">
+              <div className="px-4 py-2 bg-zinc-700 text-yellow-400 font-medium rounded-lg shadow-sm capitalize">
                 Category: {category}
               </div>
             )}
@@ -114,7 +116,7 @@ export default function ProductDetails({
 
           {typeof product.contentHtml === "string" && (
             <div
-              className="markdown-body prose max-w-none"
+              className="markdown-body prose prose-invert max-w-none"
               dangerouslySetInnerHTML={{ __html: product.contentHtml }}
             />
           )}
