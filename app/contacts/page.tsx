@@ -8,27 +8,27 @@ import Link from "next/link";
 const contactDetails = [
   {
     icon: FaPhoneAlt,
-    label: "Phone",
-    value: "+(260) 977-543-774 ",
-    link: "tel:+260977543774",
+    label: "Phone 1",
+    value: "(+260) 977-800-320 ",
+    link: "tel:+260977800320",
   },
   {
     icon: FaPhoneAlt,
-    label: "Phone",
-    value: "+(260) 973-015-900 ",
-    link: "tel:+260973015900",
+    label: "Phone 2",
+    value: "(+260) 975-909-106 ",
+    link: "tel:+260975909106",
   },
   {
     icon: FaEnvelope,
     label: "Email",
-    value: "Janetchilekwa@gmail.com",
-    link: "mailto:Janetchilekwa@gmail.com",
+    value: "Busekosteel1@gmail.com",
+    link: "mailto:Busekosteel1@gmail.com",
   },
   {
     icon: FaMapMarkerAlt,
     label: "Location",
-    value: "Lusaka and Kitwe, Zambia",
-    link: "https://www.google.com/maps/dir//-15.3865833,28.3243333/@-15.3865833,28.3243333,16z",
+    value: "Lusaka, Plot 165 Lumumba Rd, Matero next to Buseko Market",
+    link: "https://maps.app.goo.gl/Bp9B4g5wbxhC8gh2A",
   },
 ];
 
@@ -100,13 +100,13 @@ export default function ContactPage() {
           <motion.div className="space-y-10 pt-4" variants={itemVariants}>
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold text-yellow-950 text-center lg:text-start">
-                Let’s Talk Baking & Tools
+                Let’s Talk Steel & Hardware
               </h2>
               <p className="text-gray-600 leading-relaxed text-base">
-                Have questions about our baking tools, pastries, or custom
-                orders? We are here to help. Use the form to reach out or
-                connect with us directly for anything from pricing to product
-                recommendations.
+                Have questions about our steel products, building materials, or
+                custom fabrication? We are here to help. Use the form to reach
+                out or connect with us directly for anything from pricing to
+                product recommendations.
               </p>
             </div>
 

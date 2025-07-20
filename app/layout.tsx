@@ -3,6 +3,7 @@ import Footer from "@/components/common/footer";
 import NavLinks from "@/components/common/nav-bar";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollMeter } from "@/components/common/scroll";
+import ScrollToTop from "@/components/common/btt";
 
 import "./globals.css";
 import { Poppins } from "next/font/google";
@@ -96,6 +97,7 @@ export default function RootLayout({
 
       <div className="w-full justify-center bg-zinc-950">
         {" "}
+        <ScrollToTop />
         <Footer />
       </div>
     </html>

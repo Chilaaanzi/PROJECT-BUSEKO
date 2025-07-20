@@ -92,12 +92,12 @@ const About = () => {
             </h2>
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Buseko Steel was founded in 2020 with a simple vision: to provide
-              Lusaka's construction industry with the highest quality steel and
-              building materials.
+              {"Lusaka's"} construction industry with the highest quality steel
+              and building materials.
             </p>
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              From humble beginnings, we've grown into a trusted name, known for
-              reliability and dedication to our clients' success.
+              From humble beginnings, we have grown into a trusted name, known
+              for reliability and dedication to our clients success.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               We now offer over 50 products and have supported more than 100

@@ -17,7 +17,7 @@ import { Calculator, Send, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 
 // Env variables
-const MyForm_Api = process.env.NEXT_PUBLIC_EMAIL_ENDPOINT || "";
+const MyForm_Api = process.env.NEXT_PUBLIC_EMAIL_ENDPOINT_TWO || "";
 const WebsiteID = process.env.NEXT_PUBLIC_WEBSITE_ALLOWED || "";
 const WebsiteAPI = process.env.NEXT_PUBLIC_WEBSITE_ALLOWED_API || "";
 
@@ -43,6 +43,9 @@ const QuoteForm = () => {
     "Steel Pipes & Tubes",
     "U-Channels & Angles",
     "Steel Sheets & Plates",
+    "Worksuits",
+    "cornforce",
+    "brickforce",
     "Custom Requirements",
   ];
 

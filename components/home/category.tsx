@@ -63,7 +63,7 @@ const ProductShowcase = () => {
     },
     {
       title: "Steel Pipes & Tubes",
-      slug: "steel-pipes-tubes",
+      slug: "steel-pipes",
       description:
         "Galvanized and black steel pipes for plumbing, structural, and industrial applications.",
       image: "/images/products/Piping/piping.jpg",

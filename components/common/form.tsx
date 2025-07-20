@@ -90,6 +90,17 @@ const MyForm = () => {
     }
   };
 
+  const busekoSteelSubjects = [
+    { value: "place-order", label: "Place a Steel or Hardware Order" },
+    { value: "product-inquiry", label: "Product Inquiry (Steel, Tools, etc.)" },
+    { value: "custom-request", label: "Custom Steel Fabrication Request" },
+    { value: "bulk-order", label: "Bulk or Wholesale Orders" },
+    { value: "pricing", label: "Pricing & Stock Availability" },
+    { value: "delivery", label: "Delivery or Pickup Arrangements" },
+    { value: "collaboration", label: "Business Collaboration or Dealership" },
+    { value: "general", label: "General Inquiry" },
+  ];
+
   return (
     <Card className="bg-transparent shadow-none border-0">
       <CardContent>
@@ -135,26 +146,11 @@ const MyForm = () => {
                   <SelectValue placeholder="Subject" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="place-order">Place an Order</SelectItem>
-                  <SelectItem value="product-inquiry">
-                    Product Inquiry
-                  </SelectItem>
-                  <SelectItem value="custom-cake-request">
-                    Custom Cake or Pastry Request
-                  </SelectItem>
-                  <SelectItem value="bulk-order">
-                    Bulk or Wholesale Orders
-                  </SelectItem>
-                  <SelectItem value="pricing">
-                    Pricing & Availability
-                  </SelectItem>
-                  <SelectItem value="delivery">
-                    Delivery or Pickup Info
-                  </SelectItem>
-                  <SelectItem value="collaboration">
-                    Collaboration or Reseller
-                  </SelectItem>
-                  <SelectItem value="general">General Inquiry</SelectItem>
+                  {busekoSteelSubjects.map((item) => (
+                    <SelectItem key={item.value} value={item.value}>
+                      {item.label}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </span>
