@@ -251,7 +251,7 @@ const About = () => {
             quote or to discuss your project requirements.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href={"/#Quote"}>
+            <Link href={"/quote"}>
               <Button size="lg" className="text-lg hover:bg-yellow-400">
                 Get a Quote
               </Button>

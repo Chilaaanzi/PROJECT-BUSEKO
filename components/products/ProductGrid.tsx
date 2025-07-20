@@ -200,7 +200,7 @@ export default function ProductGrid({ products }: Props) {
                     </CardContent>
 
                     <div className="flex space-x-3 mt-auto">
-                      <Link href={"/#Quote"} className="w-full">
+                      <Link href={"/quote"} className="w-full">
                         <Button className="w-full hover:bg-yellow-400 hover:text-zinc-950">
                           Get Quote
                         </Button>
