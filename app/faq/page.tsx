@@ -4,44 +4,44 @@ import { motion } from "framer-motion";
 
 const faqItems = [
   {
-    question: "What products does Gelo’s Treat offer?",
+    question: "What products does Buseko Steel offer?",
     answer:
-      "We sell a wide variety of baking tools such as mixers, pans, cutters, and decorating kits. We also offer fresh pastries and treats made in-house.",
+      "Buseko Steel supplies a wide range of construction and hardware products including steel bars, H-beams, I-beams, roofing sheets, pipes, plumbing fittings, electrical tools, and solar panels.",
   },
   {
-    question: "Where is Gelo’s Treat located?",
+    question: "Where is Buseko Steel located?",
     answer:
-      "Gelo’s Treat is based in Zambia. Our exact location and pickup points are shared upon order confirmation or can be found on our contact page.",
+      "We are based in Buseko Market, Lusaka, Zambia. You can view our exact location on the map embedded on our website or visit our Facebook page for directions.",
   },
   {
     question: "Do you offer delivery services?",
     answer:
-      "Yes, we offer delivery within selected areas in Zambia. Delivery fees may vary based on your location.",
+      "Yes, we deliver within Lusaka and nearby areas. Delivery fees depend on distance and order size. You can request a delivery quote via our website’s quotation form.",
   },
   {
-    question: "Can I order custom cakes or pastries?",
+    question: "How do I request a quote?",
     answer:
-      "Absolutely! We take custom orders for cakes, cupcakes, and other baked goods. Just send us your idea or request through WhatsApp or our order form.",
+      "You can fill in the quotation form on our website by selecting the items and quantities you need. We’ll get back to you quickly with pricing and availability.",
   },
   {
-    question: "How do I place an order?",
+    question: "Can I request a custom steel cut or special order?",
     answer:
-      "You can place an order directly on our website or by messaging us on WhatsApp. For tools, just add to cart and checkout. For pastries or custom items, reach out to confirm details.",
+      "Yes. We offer custom cutting services for steel beams and other materials. If you have unique requirements, just specify them in the quote form or call us directly.",
   },
   {
-    question: "Do you offer wholesale for baking tools?",
+    question: "Do you offer bulk pricing?",
     answer:
-      "Yes, we do provide bulk pricing for bakeries or resellers. Contact us to get a quote based on the items and quantity you need.",
+      "We provide discounted rates for bulk purchases, especially for contractors and businesses. Use the quote form or contact us for a tailored price.",
   },
   {
     question: "What payment methods do you accept?",
     answer:
-      "We accept mobile money (Airtel, MTN), bank transfers, and cash on delivery (for some areas).",
+      "We accept cash, mobile money (Airtel & MTN), and bank transfers. You can also get a payment breakdown when you request a quote.",
   },
   {
-    question: "Do you teach baking or offer tutorials?",
+    question: "What makes Buseko Steel different?",
     answer:
-      "While we don’t offer formal classes yet, we do share tips, recipes, and baking guides on our blog and social media.",
+      "We combine quality materials, fair pricing, and fast service. Whether you’re building, renovating, or resupplying your shop — we ensure you get value every step of the way.",
   },
 ];
 

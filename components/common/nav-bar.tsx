@@ -55,12 +55,12 @@ const NavLinks: React.FC<NavLinksProps> = ({ links, logoSrc }) => {
           <section className="text-sm flex flex-row gap-6 items-center justify-center">
             <div className="flex items-center space-x-2">
               <Mail className="w-4 h-4" />
-              <span>example@email.com</span>
+              <span>Busekosteel1@gmail.com</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <Phone className="w-4 h-4" />
-              <span>+260 771 923 958</span>
+              <span>(+260) 977-800-320</span>
             </div>
           </section>
 
@@ -121,9 +121,12 @@ const NavLinks: React.FC<NavLinksProps> = ({ links, logoSrc }) => {
 
           {/* Mobile Phone Number */}
           {!isDesktop && (
-            <div className="text-sm text-zinc-950 font-semibold uppercase">
+            <Link
+              href="/"
+              className="text-lg text-zinc-950 font-bold uppercase"
+            >
               Buseko<span className="text-yellow-400">Steel</span>
-            </div>
+            </Link>
           )}
 
           {/* Mobile Menu Button */}

@@ -1,12 +1,42 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Truck, Shield, Calculator, BookImage } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+
+const bgImages = [
+  "/hero.jpg",
+  "/hero1.jpg",
+  "/hero2.jpg",
+  "/hero3.jpg",
+  "/hero4.jpg",
+  "/hero5.jpg",
+];
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Preload all images to avoid flicker on change
+  useEffect(() => {
+    bgImages.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) =>
+        prev === bgImages.length - 1 ? 0 : prev + 1,
+      );
+    }, 7000); // change image every 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   const trustIndicators = [
     { icon: Shield, text: "Quality Assured" },
     { icon: Truck, text: "Local Delivery" },
@@ -14,16 +44,33 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-[85dvh] flex items-center">
+    <section
+      id="home"
+      className="relative bg-zinc-900 min-h-[85dvh] flex items-center"
+    >
       {/* Background */}
-      <div className="absolute inset-0">
-        <Image
-          src={"/hero.jpg"}
-          alt="Steel construction materials"
-          layout="fill"
-          objectFit="cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/10"></div>
+      <div className="absolute inset-0 overflow-hidden">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.05, filter: "blur(4px)" }}
+            animate={{ opacity: 1, scale: 1, filter: "blur(0)" }}
+            exit={{ opacity: 0, scale: 1.3, filter: "blur(4px)" }}
+            transition={{ duration: 2.5, ease: "easeInOut" }}
+            className="absolute inset-0 will-change-auto"
+            style={{ backfaceVisibility: "hidden" }}
+          >
+            <Image
+              src={bgImages[currentImageIndex]}
+              alt="Steel construction materials"
+              layout="fill"
+              objectFit="cover"
+              priority={currentImageIndex === 0} // prioritize first image only
+              unoptimized={false}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/10 pointer-events-none"></div>
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Content */}
@@ -63,16 +110,14 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 mb-12 lg:max-w-2xl"
           >
             <Link href={"/#Quote"} className="w-full">
-              <Button className="w-full text-zinc-950 bg-yellow-400 hover:bg-zinc-950 hover:scale-105 hover:text-white">
-                {" "}
+              <Button className="w-full text-zinc-950 bg-yellow-400 hover:bg-zinc-950 hover:animate-pulse hover:text-white transition-all ">
                 <Calculator className="h-5 w-5" />
                 Get Instant Quote
               </Button>
             </Link>
 
             <Link href={"/products"} className="w-full">
-              <Button className="w-full text-zinc-950 bg-white hover:bg-zinc-950 hover:scale-105 hover:text-white">
-                {" "}
+              <Button className="w-full text-zinc-950 bg-white hover:bg-zinc-950 hover:animate-pulse hover:text-white transition-all">
                 <BookImage className="h-5 w-5" />
                 View Products
               </Button>

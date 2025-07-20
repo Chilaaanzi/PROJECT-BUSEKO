@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const About = () => {
   const values = [
@@ -250,10 +251,18 @@ const About = () => {
             quote or to discuss your project requirements.
           </motion.p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="text-lg">Get a Quote</Button>
-            <Button variant="outline" size="lg" className="text-lg">
-              Contact Us
-            </Button>
+            <Link href={"/#Quote"}>
+              <Button size="lg" className="text-lg hover:bg-yellow-400">
+                Get a Quote
+              </Button>
+            </Link>
+
+            <Link href={"/contacts"}>
+              {" "}
+              <Button variant="outline" size="lg" className="text-lg">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

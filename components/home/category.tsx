@@ -24,21 +24,21 @@ import { motion } from "framer-motion";
 const ProductShowcase = () => {
   const products = [
     {
-      id: 1,
-      name: "Steel Rebars",
+      title: "Steel Rebars",
+      slug: "steel-rebars",
       description:
         "High-tensile reinforcement bars for concrete structures. Available in various grades and diameters.",
-      image: null,
+      image: "/images/products/Reinforcement/rebar03.webp",
       icon: Building2,
       features: ["Grade 40 & 60", "6mm - 32mm diameter", "ASTM certified"],
       category: "Reinforcement",
     },
     {
-      id: 2,
-      name: "I-Beams & H-Beams",
+      title: "I-Beams & H-Beams",
+      slug: "i-beams-h-beams",
       description:
         "Structural steel beams for heavy-duty construction. Perfect for industrial and commercial projects.",
-      image: null,
+      image: "/images/products/Structural/I-beam.webp",
       icon: Factory,
       features: [
         "Standard & custom sizes",
@@ -48,11 +48,11 @@ const ProductShowcase = () => {
       category: "Structural",
     },
     {
-      id: 3,
-      name: "Roofing Sheets",
+      title: "Roofing Sheets",
+      slug: "roofing-sheets",
       description:
         "Durable corrugated and flat roofing sheets with superior weather resistance.",
-      image: null,
+      image: "/images/products/Roofing/roofing.jpg",
       icon: Home,
       features: [
         "0.5mm - 0.8mm gauge",
@@ -62,11 +62,11 @@ const ProductShowcase = () => {
       category: "Roofing",
     },
     {
-      id: 4,
-      name: "Steel Pipes & Tubes",
+      title: "Steel Pipes & Tubes",
+      slug: "steel-pipes-tubes",
       description:
         "Galvanized and black steel pipes for plumbing, structural, and industrial applications.",
-      image: null,
+      image: "/images/products/Piping/piping.jpg",
       icon: Wrench,
       features: [
         "15mm - 150mm diameter",
@@ -76,21 +76,21 @@ const ProductShowcase = () => {
       category: "Piping",
     },
     {
-      id: 5,
-      name: "U-Channels & Angles",
+      title: "U-Channels & Angles",
+      slug: "u-channels-angles",
       description:
         "Versatile steel sections for framework, supports, and general construction needs.",
-      image: null,
+      image: "/images/products/Sections/uchannel03.jpg",
       icon: Zap,
       features: ["Multiple sizes", "Hot-dipped galvanized", "Custom cutting"],
       category: "Sections",
     },
     {
-      id: 6,
-      name: "Steel Sheets & Plates",
+      title: "Steel Sheets & Plates",
+      slug: "steel-sheets-plates",
       description:
         "Flat steel products for fabrication, welding, and general metalworking applications.",
-      image: null,
+      image: "/images/products/Sheets/sheets.jpg",
       icon: ShieldCheck,
       features: ["1mm - 25mm thickness", "Various grades", "Cut to size"],
       category: "Sheets",
@@ -98,7 +98,7 @@ const ProductShowcase = () => {
   ];
 
   return (
-    <section id="products" className="py-20 bg-background">
+    <section id="products" className="py-10 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
@@ -119,78 +119,89 @@ const ProductShowcase = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ scale: 1.02 }}
-            >
-              <Card className="group transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-                {/* Product Image */}
-                <div className="relative h-48 overflow-hidden">
-                  {product.image ? (
-                    <Image
-                      src={product.image}
-                      alt={product.name}
-                      layout="fill"
-                      objectFit="cover"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gradient-card flex items-center justify-center">
-                      <product.icon className="h-16 w-16 text-primary" />
+          {products.map((product, index) => {
+            const firstImage = Array.isArray(product.image)
+              ? product.image[0]
+              : typeof product.image === "string"
+                ? product.image
+                : null;
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Card className="group transition-all duration-300 border border-zinc-300 overflow-hidden p-0">
+                  {/* Product Image */}
+                  <div className="relative w-full h-60">
+                    {firstImage ? (
+                      <Image
+                        src={firstImage}
+                        alt={product.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-card flex items-center justify-center">
+                        <product.icon className="h-16 w-16 text-primary" />
+                      </div>
+                    )}
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-yellow-400 text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                        {product.category}
+                      </span>
                     </div>
-                  )}
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-yellow-400 text-accent-foreground px-3 py-1 rounded-full text-sm font-semibold">
-                      {product.category}
-                    </span>
                   </div>
-                </div>
 
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-3">
-                    <product.icon className="h-6 w-6 text-primary" />
-                    <span>{product.name}</span>
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    {product.description}
-                  </CardDescription>
-                </CardHeader>
+                  {/* Content */}
+                  <div className="p-4">
+                    <CardHeader className="p-0">
+                      <CardTitle className="flex items-center space-x-3">
+                        <product.icon className="h-6 w-6 text-primary" />
+                        <span>{product.title}</span>
+                      </CardTitle>
+                      <CardDescription className="text-base mt-2">
+                        {product.description}
+                      </CardDescription>
+                    </CardHeader>
 
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {product.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-center text-sm text-muted-foreground"
-                      >
-                        <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                    <CardContent className="p-0 pt-4">
+                      <ul className="space-y-2 mb-6">
+                        {product.features.map((feature, i) => (
+                          <li
+                            key={i}
+                            className="flex items-center text-sm text-muted-foreground"
+                          >
+                            <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
 
-                  <div className="flex space-x-3">
-                    <Link href={"/#Quote"} className="w-full">
-                      <Button className="w-full hover:bg-yellow-400 hover:text-zinc-950">
-                        Get Quote
-                      </Button>
-                    </Link>
+                      <div className="flex space-x-3">
+                        <Link href={"/#Quote"} className="w-full">
+                          <Button className="w-full hover:bg-yellow-400 hover:text-zinc-950">
+                            Get Quote
+                          </Button>
+                        </Link>
 
-                    <Link href={`/products/${index}`}>
-                      <Button variant="outline" size="icon">
-                        <ArrowRight className="h-4 w-4" />
-                      </Button>
-                    </Link>
+                        <Link href={`/products/${product.slug}`}>
+                          <Button variant="outline" size="icon">
+                            <ArrowRight className="h-4 w-4" />
+                          </Button>
+                        </Link>
+                      </div>
+                    </CardContent>
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Call to action */}

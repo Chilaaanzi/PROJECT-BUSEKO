@@ -4,19 +4,50 @@ import { LoginButton } from "@/components/common/loginButton";
 
 const Footer = () => {
   const contactInfo = [
-    { icon: Phone, label: "Phone", value: "+260 977 123 456" },
-    { icon: Mail, label: "Email", value: "info@busekosteel.com" },
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "(+260) 977-800-320",
+      link: "tel:+260977800320",
+    },
+    {
+      icon: Mail,
+      label: "Email",
+      value: "Busekosteel1@gmail.com",
+      link: "mailto:Busekosteel1@gmail.com",
+    },
     {
       icon: MapPin,
-      label: "Address",
-      value: "Industrial Area, Lusaka, Zambia",
+      label: "Address 1",
+      value: "matero next to buseko market, Plot 165 Lumumba Rd",
+      link: "https://maps.app.goo.gl/Bp9B4g5wbxhC8gh2A",
     },
-    { icon: Clock, label: "Hours", value: "Mon-Fri: 7AM-6PM, Sat: 8AM-4PM" },
+    {
+      icon: MapPin,
+      label: "Address 2",
+      value: "shop no A19 westgate, Lumumba Rd, Lusaka",
+      link: "https://maps.app.goo.gl/SzqMgptaWwxyw7ScA",
+    },
+
+    {
+      icon: Clock,
+      label: "Hours",
+      value: "Mon-Fri: 7AM-6PM, Sat: 8AM-4PM",
+      link: "#",
+    },
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/busekosteel?mibextid=ZbWKwL",
+      label: "Facebook",
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/buseko_steel/",
+      label: "Instagram",
+    },
   ];
 
   const quickLinks = [
@@ -26,6 +57,24 @@ const Footer = () => {
     { name: "Contact", url: "/contacts" },
     { name: "FAQs", url: "/faq" },
     { name: "Blog", url: "/blogs" },
+  ];
+
+  const stock = [
+    { name: "Steel Rebars", url: "/products/steel-rebars" },
+    { name: "I-Beams & H-Beams", url: "/products/i-beams-h-beams" },
+    { name: "Roofing Sheets", url: "/products/roofing-sheets" },
+    { name: "Steel Pipes", url: "/products/steel-pipes" },
+    { name: "U-Channels", url: "/products/u-channels-angles" },
+    { name: "Steel Plates", url: "/products/steel-sheets-plates" },
+    { name: "Cornforce Wire", url: "/products/Cornforce-wire" },
+  ];
+
+  const developer = [
+    {
+      name: "Janban Enterprises Ltd",
+      url: "https://github.com/Chilanzi-thirt33n",
+    },
+    { name: "Ademha Digital", url: "https://ademhadigital.com" },
   ];
 
   const today = new Date().getFullYear();
@@ -54,6 +103,7 @@ const Footer = () => {
                     href={social.href}
                     className="bg-white/10 p-2 rounded-full hover:bg-yellow-400 transition-colors"
                     aria-label={social.label}
+                    target="_blank"
                   >
                     <social.icon className="h-5 w-5" />
                   </Link>
@@ -84,13 +134,16 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-6">Our Products</h3>
             <ul className="space-y-3 text-white/70">
-              <li>Steel Rebars</li>
-              <li>I-Beams & H-Beams</li>
-              <li>Roofing Sheets</li>
-              <li>Steel Pipes</li>
-              <li>U-Channels</li>
-              <li>Steel Plates</li>
-              <li>Many more</li>
+              {stock.map((product, index) => (
+                <li key={index}>
+                  <Link
+                    href={product.url}
+                    className="text-white/70 hover:text-yellow-400 transition-colors"
+                  >
+                    {product.name}
+                  </Link>{" "}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -99,16 +152,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-6">Contact Us</h3>
             <div className="space-y-4">
               {contactInfo.map((item) => (
-                <div
+                <Link
+                  href={item.link}
                   key={item.label}
-                  className="flex items-start justify-center lg:justify-start space-x-3"
+                  className="flex items-start justify-center lg:justify-start space-x-3  "
                 >
                   <item.icon className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-sm text-white/50">{item.label}</div>
-                    <div className="text-white/90">{item.value}</div>
+                    <div className="text-white/90 hover:text-yellow-400">
+                      {item.value}
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -116,26 +172,41 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="border-t border-white/20 pt-8 mt-12">
-          <div className="flex flex-col md:flex-row justify-between items-center  space-y-4 md:space-y-0">
-            <div className="text-white/50 text-sm">
-              © 2022 - {today} Buseko Steel. All rights reserved.
+          <div className="flex flex-col md:flex-row justify-between items-center lg:items-start  space-y-4 md:space-y-0">
+            <div className="text-white/50 text-sm lg:max-w-md">
+              © 2020 - {today} Buseko Steel. All rights reserved. Built with
+              care by{" "}
+              <Link
+                href={developer[0].url}
+                className="hover:text-yellow-400 transition-colors hover:underline"
+              >
+                {developer[0].name}
+              </Link>{" "}
+              &{" "}
+              <Link
+                href={developer[1].url}
+                className="hover:text-yellow-400 transition-colors hover:underline"
+              >
+                {developer[1].name}
+              </Link>
             </div>
+
             <div className="flex space-x-6 text-sm">
               <Link
                 href="#"
-                className="text-white/50 hover:text-yellow-400 transition-colors"
+                className="text-white/50 hover:text-yellow-400 transition-colors hover:underline"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-white/50 hover:text-yellow-400 transition-colors"
+                className="text-white/50 hover:text-yellow-400 transition-colors hover:underline"
               >
                 Terms of Service
               </Link>
               <Link
                 href="#"
-                className="text-white/50 hover:text-yellow-400 transition-colors"
+                className="text-white/50 hover:text-yellow-400 transition-colors hover:underline"
               >
                 Warranty
               </Link>
