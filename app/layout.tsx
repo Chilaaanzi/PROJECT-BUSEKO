@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     siteName: "Buseko Steel",
     images: [
       {
-        url: "https://busekosteel.com/og-image.png", // Replace with actual OG image if available
+        url: "https://busekosteel.com/og-image.jpg", // Replace with actual OG image if available
         width: 1200,
         height: 630,
         alt: "Buseko Steel store and product preview",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Buseko Steel — Hardware, Steel, and Building Materials in Zambia",
     description:
       "Shop construction supplies, steel bars, power tools, and more at Buseko Steel – Zambia's trusted building materials supplier.",
-    images: ["https://busekosteel.com/og-image.png"], // Replace if image exists
+    images: ["https://busekosteel.com/og-image.jpg"], // Replace if image exists
   },
   icons: {
     icon: "/favicon.ico",
