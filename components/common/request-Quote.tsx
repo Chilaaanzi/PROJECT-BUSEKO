@@ -78,13 +78,14 @@ const QuoteForm = () => {
         body: JSON.stringify({
           websiteID: WebsiteID,
           apiKey: WebsiteAPI,
-          senderName: `${formData.firstName} ${formData.lastName}`,
-          senderEmail: formData.email,
-          senderPhone: formData.phone,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
           company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
           subject: formData.subject,
-          quantity: formData.quantity,
           message: formData.message,
+          quantity: formData.quantity,
         }),
       });
 
