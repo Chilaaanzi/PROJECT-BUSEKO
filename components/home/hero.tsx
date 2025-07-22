@@ -46,7 +46,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative bg-zinc-900 min-h-screen lg:min-h-[80vh] flex items-center"
+      className="relative bg-zinc-900 min-h-screen lg:min-h-[80dvh] flex items-center"
     >
       {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
