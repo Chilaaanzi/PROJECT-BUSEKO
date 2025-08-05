@@ -30,7 +30,11 @@ const ProductShowcase = () => {
         "High-tensile reinforcement bars for concrete structures. Available in various grades and diameters.",
       image: "/images/products/Reinforcement/rebar03.webp",
       icon: Building2,
-      features: ["Grade 40 & 60", "6mm - 32mm diameter", "ASTM certified"],
+      features: [
+        "Grade low , medium and high",
+        "all sizes available",
+        "ASTM certified",
+      ],
       category: "Reinforcement",
     },
     {
@@ -55,7 +59,7 @@ const ProductShowcase = () => {
       image: "/images/products/Roofing/roofing.jpg",
       icon: Home,
       features: [
-        "0.5mm - 0.8mm gauge",
+        "all sizes and thickness",
         "Pre-painted options",
         "25-year warranty",
       ],
@@ -65,13 +69,13 @@ const ProductShowcase = () => {
       title: "Steel Pipes & Tubes",
       slug: "steel-pipes",
       description:
-        "Galvanized and black steel pipes for plumbing, structural, and industrial applications.",
+        "Steel pipes for plumbing, structural, and industrial applications.",
       image: "/images/products/Piping/piping.jpg",
       icon: Wrench,
       features: [
         "15mm - 150mm diameter",
         "Threaded & plain end",
-        "API certified",
+        "light, medium and heavy duty quality",
       ],
       category: "Piping",
     },
@@ -92,7 +96,7 @@ const ProductShowcase = () => {
         "Flat steel products for fabrication, welding, and general metalworking applications.",
       image: "/images/products/Sheets/sheets.jpg",
       icon: ShieldCheck,
-      features: ["1mm - 25mm thickness", "Various grades", "Cut to size"],
+      features: ["0.4mm to 100mm thickness", "Various grades", "Cut to size"],
       category: "Sheets",
     },
   ];
