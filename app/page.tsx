@@ -4,11 +4,13 @@ import About from "@/components/home/about";
 import WhyChooseUs from "@/components/home/why";
 import LatestPosts from "@/components/home/blogs";
 import QuoteForm from "@/components/common/request-Quote";
+import Tape from "@/components/home/tape";
 
 export default function Home() {
   return (
     <div className=" font-[family-name:var(--font-geist-sans)] w-full overflow-hidden">
       <HeroSection />
+      <Tape />
       <main className="w-full flex flex-col justify-center items-center">
         <section className="w-full lg:w-[85vw]">
           <ProductCategories />
