@@ -15,7 +15,7 @@ export default async function BlogPage({
   );
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center overflow-x-hidden">
       {/* Header Section */}
       <div className="w-full bg-neutral-900 text-white">
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[60vh]">
@@ -73,10 +73,10 @@ export default async function BlogPage({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4, duration: 0.6 }}
-        className="prose prose-sm sm:prose-base max-w-5xl pb-6 sm:pb-12 prose-p:text-gray-700 prose-h2:text-pink-800 prose-li:marker:text-pink-500 prose-img:rounded-xl prose-img:shadow-md prose-img:my-6 prose-img:mx-auto prose-blockquote:border-l-4 prose-blockquote:border-pink-300 prose-blockquote:pl-4 prose-blockquote:text-gray-600 prose-hr:border-pink-300"
+        className="prose prose-sm sm:prose-base max-w-5xl pb-6 sm:pb-12 prose-p:text-gray-700 prose-h2:text-pink-800 prose-li:marker:text-pink-500 prose-img:rounded-xl prose-img:shadow-md prose-img:my-6 prose-img:mx-auto prose-blockquote:border-l-4 prose-blockquote:border-pink-300 prose-blockquote:pl-4 prose-blockquote:text-gray-600 prose-hr:border-pink-300 px-4 w-full"
       >
         <div
-          className="markdown-body text-pink-600 p-2"
+          className="markdown-body p-4 max-w-full overflow-x-hidden"
           dangerouslySetInnerHTML={{ __html: blog.contentHtml }}
           style={{
             lineHeight: "1.6",
