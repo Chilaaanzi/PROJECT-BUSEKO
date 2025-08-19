@@ -80,7 +80,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-center lg:text-start"
+            className="text-2xl md:text-4xl font-bold text-white mb-6 leading-tight text-center lg:text-start"
           >
             {"Zambia's Premier"}
             <motion.span
