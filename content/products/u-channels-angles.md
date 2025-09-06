@@ -1,7 +1,7 @@
 ---
 title: "U-Channels"
 price: 110
-category: "Sections"
+category: "Structural & Sections"
 stock: 80
 date: "2025-07-01"
 features:

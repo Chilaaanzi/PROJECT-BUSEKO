@@ -1,7 +1,7 @@
 ---
 title: "I-Beams"
 price: 280
-category: "Structural"
+category: "Structural & Sections"
 stock: 40
 date: "2025-07-01"
 features:
