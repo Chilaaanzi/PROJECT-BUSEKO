@@ -12,7 +12,7 @@ const stats = [
 ];
 
 const AboutSection = () => (
-  <section id="about" className="py-20 bg-yellow-300/30">
+  <section id="about" className="py-20 bg-yellow-400">
     <div className="container mx-auto px-4">
       {/* Header */}
       <motion.div
@@ -59,7 +59,7 @@ const AboutSection = () => (
               {" "}
               <Button
                 size="lg"
-                className=" hover:bg-yellow-400 hover:text-zinc-950"
+                className=" hover:bg-yellow-200 hover:text-zinc-950"
               >
                 <Building2 className="h-5 w-5 mr-2" />
                 Learn More About Us

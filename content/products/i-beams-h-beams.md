@@ -1,7 +1,7 @@
 ---
 title: "I-Beams & H-Beams"
 price: 180
-category: "Structural"
+category: "Structural & Sections"
 stock: 75
 date: "2025-07-01"
 features:

@@ -1,7 +1,7 @@
 ---
 title: "Steel Pipes"
 price: 130
-category: "Piping"
+category: "Pipes and Tubes"
 stock: 90
 date: "2025-07-01"
 features:
