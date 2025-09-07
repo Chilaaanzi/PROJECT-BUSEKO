@@ -42,19 +42,19 @@ const About = () => {
 
   const team = [
     {
-      name: "John Mwansa",
+      name: "Mehmood Asmal",
       role: "Founder & CEO",
       experience: "20+ years in construction industry",
     },
     {
-      name: "Sarah Banda",
-      role: "Operations Manager",
-      experience: "15+ years in logistics & supply chain",
+      name: "Saad Asmal",
+      role: "Sales Manager",
+      experience: "15+ years in Sales and Customer Relations",
     },
     {
-      name: "Michael Phiri",
-      role: "Quality Assurance Director",
-      experience: "18+ years in materials engineering",
+      name: "Aadil Ahmed",
+      role: "Marketing Manager",
+      experience: "10+ years in marketing industry",
     },
   ];
 
