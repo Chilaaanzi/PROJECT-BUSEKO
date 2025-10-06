@@ -157,7 +157,7 @@ const Footer = () => {
                   key={item.label}
                   className="flex items-start justify-center lg:justify-start space-x-3  "
                 >
-                  <item.icon className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                  <item.icon className="h-5 w-5 text-yellow-400 mt-0.5 flex-shrink-0 hidden lg:flex" />
                   <div>
                     <div className="text-sm text-white/50">{item.label}</div>
                     <div className="text-white/90 hover:text-yellow-400">
