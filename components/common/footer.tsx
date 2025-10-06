@@ -71,10 +71,9 @@ const Footer = () => {
 
   const developer = [
     {
-      name: "Janban Enterprises Ltd",
-      url: "https://github.com/Chilanzi-thirt33n",
+      name: "BridgedWorks",
+      url: "#",
     },
-    { name: "Ademha Digital", url: "https://ademhadigital.com" },
   ];
 
   const today = new Date().getFullYear();
@@ -182,13 +181,6 @@ const Footer = () => {
               >
                 {developer[0].name}
               </Link>{" "}
-              &{" "}
-              <Link
-                href={developer[1].url}
-                className="hover:text-yellow-400 transition-colors hover:underline"
-              >
-                {developer[1].name}
-              </Link>
             </div>
 
             <div className="flex space-x-6 text-sm">
